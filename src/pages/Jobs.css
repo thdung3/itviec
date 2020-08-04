@@ -1,0 +1,24 @@
+#txt-search {
+    border: none;
+    outline: none;
+}
+#txt-search-area{
+    padding: 15px;
+    background-color: white;
+}
+.search-area{
+    background-color: #221f20;
+    height: 344px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row-search-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.job-list-area{
+    background-color: white;
+    margin-top: -75px;
+}

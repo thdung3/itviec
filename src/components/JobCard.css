@@ -1,0 +1,26 @@
+.job-card-area{ 
+    padding: 27px 0px !important;
+    margin-right: -2px;
+}
+.tag{ 
+    border: 1px solid black;
+    padding: 3px 7px;
+    margin-right: 5px;
+}
+.img-company{
+    border: 1px solid #ccc;
+    width: 65px;
+    height: 65px;
+}
+.txt-hotjob{
+    background-color: #ff9e34;
+    padding: 2px 10px;
+    color: white;
+}
+.card-left-area{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-direction: column;
+    padding-right: 40px;
+}
