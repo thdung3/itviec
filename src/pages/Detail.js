@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
-import { Navbar, Container, Row, Col } from 'react-bootstrap'
+import { Navbar, Container, Row, Col, Button } from 'react-bootstrap'
 import Moment from 'react-moment'
+import ClipLoader from "react-spinners/ClipLoader";
+
 export default function Detail(props) {
     let { id } = useParams()
     const [job, setJob] = useState(null)
@@ -17,7 +19,11 @@ export default function Detail(props) {
         getData()
     }, [])
     if (job === null) {
-        return <h1>loading</h1>
+        return (
+            <div style={{ display: "flex", justifyContent: "center", height: "100vh", alignItems: "center" }}>
+                <ClipLoader color="#f86c6b" size={150} loading={true} />
+            </div>
+        )
     }
     return (
         <div>
@@ -33,7 +39,7 @@ export default function Detail(props) {
                 </Container>
             </Navbar>
 
-            <Container>
+            <Container className="job-detail-area">
                 <Row>
                     <Col md={2}>
                         <img src={job.img} />
@@ -41,7 +47,7 @@ export default function Detail(props) {
                     <Col md={10}>
                         <h4>{job.title}</h4>
                         {job.tags.map(tag => <span className="tag">{tag} {' '}</span>)}
-                        <p><i className="fas fa-dollar-sign"></i>{' '}{job.salary}</p>
+                        <p><i className="fas fa-dollar-sign" style={{ marginTop: "20px" }}></i>{' '}{job.salary}</p>
                         <p><i class="fas fa-map-marker-alt"></i>{' '}{job.city}{' district '}{job.district}</p>
                         <p><i class="fas fa-clock"></i>{' '}<Moment fromNow>{job.time}</Moment></p>
                         <h5>Benefit</h5>
@@ -50,6 +56,7 @@ export default function Detail(props) {
                         </ul>
                         <h5>Description</h5>
                         <p>{job.description}</p>
+                        <Button block variant="danger">Apply Now</Button>
                     </Col>
                 </Row>
             </Container>

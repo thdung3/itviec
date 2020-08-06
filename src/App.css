@@ -1,9 +1,40 @@
 .border-red{
-  border: 1px solid red;
+  border: 1px solid red !important;
 }
 .App{
   background: #e9e9e9;
 }
 .nav-background{
   background-color: #221f20;
+}
+
+.job-detail-area{
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+.login-area{
+  height: 100vh;
+  background-color: #e9e9e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-background {
+  width: 400px;
+  height: 400px;
+  background-color: #221f20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+.login-background h1{
+  text-align: center;
+  font-weight: 700;
+}
+.btn-login{
+  justify-content: center;
 }

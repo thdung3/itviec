@@ -1,11 +1,23 @@
 .job-card-area{ 
     padding: 27px 0px !important;
     margin-right: -2px;
+    transition: all 0.25s ease;
+}
+.job-card-area:hover{
+    cursor: pointer;
+    background: white;
+    box-shadow: 0 0 5px 1px #bcbcbc;
+}
+.job-card-area:hover .job-title{
+    color: red;
+}
+.job-card-area:hover .tag{
+    color: red;
 }
 .tag{ 
     border: 1px solid black;
     padding: 3px 7px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 .img-company{
     border: 1px solid #ccc;

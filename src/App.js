@@ -12,11 +12,13 @@ import {
 import Login from './pages/Login';
 import Jobs from './pages/Jobs';
 import Detail from './pages/Detail';
+import { useSelector } from 'react-redux'
+
 
 export default function App() {
-  const [user, setUser] = useState({ login: true })
+  const state = useSelector(state => state)
   const ProtectedRoute = (props) => {
-    if (user.login === true) {
+    if (state.user.isAuthenticated === true) {
       return <Route {...props} />
     } else {
       return <Redirect to='/login' />

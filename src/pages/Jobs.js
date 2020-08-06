@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
-import { Container, Row, Col, Button, Navbar, Table } from 'react-bootstrap'
+import { Container, Row, Col, Button, Navbar, Table, Form } from 'react-bootstrap'
 import './Jobs.css'
 import JobCard from '../components/JobCard'
+import ClipLoader from "react-spinners/ClipLoader";
 const QUERYSTR_PREFIX = 'q'
 const api = process.env.REACT_APP_SERVER_URL
 
@@ -28,7 +29,7 @@ export default function Jobs() {
         let filteredJobs = originalJobList
         if (e) {
             e.preventDefault()
-            history.push(`/jobs/?${QUERYSTR_PREFIX}=${encodeURIComponent(keyword)}`)
+            history.push(`/jobs?${QUERYSTR_PREFIX}=${encodeURIComponent(keyword)}`)
         }
         console.log('keyword:', keyword)
         if (keyword) {
@@ -64,7 +65,12 @@ export default function Jobs() {
     }, [originalJobList])
 
     if (jobList.length === 0) {
-        return <h1>loading</h1>
+        return (
+            <div style={{ display: "flex", justifyContent: "center", height: "100vh", alignItems: "center" }}>
+                <ClipLoader color="#f86c6b" size={150} loading={true} />
+            </div>
+        )
+
     }
     return (
         <div>
@@ -80,14 +86,14 @@ export default function Jobs() {
                 </Container>
             </Navbar>
 
-            <div className="search-area">
+            <Form onSubmit={(e) => handleSearch(e)} className="search-area">
                 <Container>
                     <Row className="row-search-area">
                         <Col sm={10}>
                             <div id="txt-search-area">
                                 <i class="fas fa-search"></i>
                                 <input
-                                    className="col-sm-11 border-red"
+                                    className="col-sm-11"
                                     id="txt-search"
                                     type="text"
                                     placeholder="Keyword skill (Java, iOS...), Job Title, Company"
@@ -101,7 +107,7 @@ export default function Jobs() {
                         </Col>
                     </Row>
                 </Container>
-            </div>
+            </Form>
             <Container className="job-list-area">
                 <Table hover size="sm">
                     <thead>
